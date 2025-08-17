@@ -16,7 +16,10 @@ import {
 import { Input } from '~/components/ui/input';
 import { useTranslation } from 'react-i18next';
 import { useDailyMotivation } from '~/lib/useDailyMotivation';
+import { useRouter } from 'expo-router';
 import { useCustomQuotes, type CustomQuote } from '../lib/useCustomQuotes';
+import { useFavoriteQuotes } from '../lib/useFavoriteQuotes';
+import { Heart } from '~/lib/icons/Heart';
 import * as Notifications from 'expo-notifications';
 import * as Device from 'expo-device';
 import { Platform } from 'react-native';
@@ -93,6 +96,8 @@ export default function Screen() {
   const dailyQuote = useDailyMotivation();
   const { t } = useTranslation();
   const { quotes, addQuote, editQuote, deleteQuote } = useCustomQuotes();
+  const { favorites, addFavorite, removeFavorite, isFavorite } = useFavoriteQuotes();
+  const router = useRouter();
   const [notificationsEnabled, setNotificationsEnabled] = React.useState(false);
   // All quotes for notifications (default + custom)
   const allQuotes = [
@@ -137,7 +142,7 @@ export default function Screen() {
 
   return (
     <View className="flex-1 justify-center items-center bg-background p-6">
-      <Card className="w-full max-w-md p-8 rounded-3xl shadow-lg mb-6">
+  <Card className="w-full max-w-md p-8 rounded-3xl shadow-lg mb-6">
         {/* Notification toggle */}
         <View className="flex-row items-center justify-between mb-4">
           <View className="flex-1">
@@ -146,12 +151,31 @@ export default function Screen() {
           </View>
           <Switch checked={notificationsEnabled} onCheckedChange={setNotificationsEnabled} />
         </View>
-        <Text className="text-2xl font-bold text-center mb-4">
-          {dailyQuote}
-        </Text>
-        <Button variant="outline" className="mt-4" onPress={handleShare}>
-          <Text className="font-semibold text-primary text-base">{t('share.button')}</Text>
-        </Button>
+        <View className="flex-row items-center justify-center mb-4">
+          <Text className="text-2xl font-bold text-center flex-1">
+            {dailyQuote}
+          </Text>
+          <Button
+            variant="ghost"
+            className="ml-2"
+            onPress={() =>
+              isFavorite(dailyQuote)
+                ? removeFavorite(dailyQuote)
+                : addFavorite(dailyQuote)
+            }
+            accessibilityLabel={isFavorite(dailyQuote) ? t('favorites.remove') : t('favorites.add')}
+          >
+            <Heart filled={isFavorite(dailyQuote)} className={isFavorite(dailyQuote) ? 'text-red-500' : 'text-muted-foreground'} />
+          </Button>
+        </View>
+        <View className="flex-row gap-2 mt-4">
+          <Button variant="outline" onPress={handleShare}>
+            <Text className="font-semibold text-primary text-base">{t('share.button')}</Text>
+          </Button>
+          <Button variant="outline" onPress={() => router.push('./favorites')}>
+            <Text className="font-semibold text-primary text-base">{t('favorites.button')}</Text>
+          </Button>
+        </View>
       </Card>
 
       <Card className="w-full max-w-md p-6 rounded-2xl shadow">

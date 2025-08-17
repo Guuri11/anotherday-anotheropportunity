@@ -51,6 +51,12 @@ export default function RootLayout() {
               headerRight: () => <ThemeToggle />,
             }}
           />
+          <Stack.Screen
+            name='favorites'
+            options={{
+              title: 'Favoritos', // i18n key will be used in the screen itself
+            }}
+          />
         </Stack>
         <PortalHost />
       </ThemeProvider>

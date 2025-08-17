@@ -33,4 +33,12 @@
 		"disable": "Disable notifications",
 		"test_message": "Your motivational quote: {{quote}}"
 	}
+	,
+	"favorites": {
+		"title": "Favorite Quotes",
+		"empty": "You haven't marked any quotes as favorites yet.",
+		"button": "Favorites",
+		"add": "Add to favorites",
+		"remove": "Remove from favorites"
+	}
 }

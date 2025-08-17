@@ -34,4 +34,12 @@
 		"disable": "Desactivar notificaciones",
 		"test_message": "Tu frase motivacional: {{quote}}"
 	}
+	,
+	"favorites": {
+		"title": "Frases favoritas",
+		"empty": "Aún no has marcado ninguna frase como favorita.",
+		"button": "Favoritos",
+		"add": "Agregar a favoritos",
+		"remove": "Quitar de favoritos"
+	}
 }
