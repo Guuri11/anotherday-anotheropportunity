@@ -10,6 +10,9 @@ import { useColorScheme } from '~/lib/useColorScheme';
 import { PortalHost } from '@rn-primitives/portal';
 import { ThemeToggle } from '~/components/ThemeToggle';
 import { setAndroidNavigationBar } from '~/lib/android-navigation-bar';
+import '~/lib/locales/i18n';
+import { I18nextProvider } from 'react-i18next';
+import { i18n } from '~/lib/locales/i18n';
 
 const LIGHT_THEME: Theme = {
   ...DefaultTheme,
@@ -25,6 +28,7 @@ export {
   ErrorBoundary,
 } from 'expo-router';
 
+
 const usePlatformSpecificSetup = Platform.select({
   web: useSetWebBackgroundClassName,
   android: useSetAndroidNavigationBar,
@@ -36,19 +40,21 @@ export default function RootLayout() {
   const { isDarkColorScheme } = useColorScheme();
 
   return (
-    <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
-      <StatusBar style={isDarkColorScheme ? 'light' : 'dark'} />
-      <Stack>
-        <Stack.Screen
-          name='index'
-          options={{
-            title: 'Starter Base',
-            headerRight: () => <ThemeToggle />,
-          }}
-        />
-      </Stack>
-      <PortalHost />
-    </ThemeProvider>
+    <I18nextProvider i18n={i18n}>
+      <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
+        <StatusBar style={isDarkColorScheme ? 'light' : 'dark'} />
+        <Stack>
+          <Stack.Screen
+            name='index'
+            options={{
+              title: 'Starter Base',
+              headerRight: () => <ThemeToggle />,
+            }}
+          />
+        </Stack>
+        <PortalHost />
+      </ThemeProvider>
+    </I18nextProvider>
   );
 }
 
