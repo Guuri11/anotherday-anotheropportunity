@@ -17,10 +17,89 @@ import { Input } from '~/components/ui/input';
 import { useTranslation } from 'react-i18next';
 import { useDailyMotivation } from '~/lib/useDailyMotivation';
 import { useCustomQuotes, type CustomQuote } from '../lib/useCustomQuotes';
+import * as Notifications from 'expo-notifications';
+import * as Device from 'expo-device';
+import { Platform } from 'react-native';
+import { Switch } from '~/components/ui/switch';
+
+// Set notification handler globally (should be in app entry, but safe here for demo)
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowBanner: true,
+    shouldShowList: true,
+    shouldPlaySound: false,
+    shouldSetBadge: false,
+  }),
+});
+
+async function registerForNotifications() {
+  if (Platform.OS === 'android') {
+    await Notifications.setNotificationChannelAsync('motivational', {
+      name: 'Motivational',
+      importance: Notifications.AndroidImportance.MAX,
+      vibrationPattern: [0, 250, 250, 250],
+      lightColor: '#FF231F7C',
+    });
+  }
+  if (Device.isDevice) {
+    const { status: existingStatus } = await Notifications.getPermissionsAsync();
+    let finalStatus = existingStatus;
+    if (existingStatus !== 'granted') {
+      const { status } = await Notifications.requestPermissionsAsync();
+      finalStatus = status;
+    }
+    if (finalStatus !== 'granted') {
+      alert('No permission for notifications');
+      return false;
+    }
+    return true;
+  }
+  return false;
+}
+
+function useTestNotifications(quotes: string[], enabled: boolean, t: any) {
+  React.useEffect(() => {
+    let notificationId: string | undefined;
+    async function schedule() {
+      const ok = await registerForNotifications();
+      if (!ok) return;
+      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+      notificationId = await Notifications.scheduleNotificationAsync({
+        content: {
+          title: t('notifications.title'),
+          body: t('notifications.test_message', { quote: randomQuote }),
+          sound: false,
+        },
+        // @ts-expect-error Expo SDK 53+ expects 'timeInterval' as a string, but types are not aligned
+        trigger: {
+          type: 'timeInterval',
+          seconds: 30,
+          repeats: true,
+        },
+      });
+    }
+    if (enabled) {
+      schedule();
+    } else {
+      // Cancel all scheduled notifications for this channel
+      Notifications.cancelAllScheduledNotificationsAsync();
+    }
+    return () => {
+      if (notificationId) Notifications.cancelScheduledNotificationAsync(notificationId);
+    };
+  }, [enabled, quotes, t]);
+}
 export default function Screen() {
   const dailyQuote = useDailyMotivation();
   const { t } = useTranslation();
   const { quotes, addQuote, editQuote, deleteQuote } = useCustomQuotes();
+  const [notificationsEnabled, setNotificationsEnabled] = React.useState(false);
+  // All quotes for notifications (default + custom)
+  const allQuotes = [
+    ...t('motivation.quotes', { returnObjects: true }) as string[],
+    ...quotes.map(q => q.text)
+  ];
+  useTestNotifications(allQuotes, notificationsEnabled, t);
 
   // Dialog state
   const [dialogOpen, setDialogOpen] = React.useState(false);
@@ -37,12 +116,6 @@ export default function Screen() {
     }
   };
 
-  const openAddDialog = () => {
-    setEditId(null);
-    setInputValue('');
-    setError('');
-    setDialogOpen(true);
-  };
   const openEditDialog = (quote: CustomQuote) => {
     setEditId(quote.id);
     setInputValue(quote.text);
@@ -65,6 +138,14 @@ export default function Screen() {
   return (
     <View className="flex-1 justify-center items-center bg-background p-6">
       <Card className="w-full max-w-md p-8 rounded-3xl shadow-lg mb-6">
+        {/* Notification toggle */}
+        <View className="flex-row items-center justify-between mb-4">
+          <View className="flex-1">
+            <Text className="text-base font-semibold mb-1">{t('notifications.title')}</Text>
+            <Text className="text-xs text-muted-foreground">{t('notifications.description')}</Text>
+          </View>
+          <Switch checked={notificationsEnabled} onCheckedChange={setNotificationsEnabled} />
+        </View>
         <Text className="text-2xl font-bold text-center mb-4">
           {dailyQuote}
         </Text>

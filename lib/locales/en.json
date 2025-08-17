@@ -7,12 +7,11 @@
 			"Start each day with a positive thought.",
 			"Small steps every day lead to big results."
 		]
-		},
-		"share": {
-			"button": "Share",
-			"message": "Check out this motivational quote: {{quote}}"
-		}
-	,
+	},
+	"share": {
+		"button": "Share",
+		"message": "Check out this motivational quote: {{quote}}"
+	},
 	"customQuotes": {
 		"add": "Add your own quote",
 		"edit": "Edit quote",
@@ -26,5 +25,12 @@
 			"edit": "Edit",
 			"delete": "Delete"
 		}
+	},
+	"notifications": {
+		"title": "Motivational notifications",
+		"description": "Receive a motivational quote as a notification.",
+		"enable": "Enable notifications",
+		"disable": "Disable notifications",
+		"test_message": "Your motivational quote: {{quote}}"
 	}
 }

@@ -26,4 +26,12 @@
 					"delete": "Eliminar"
 				}
 			}
+	,
+	"notifications": {
+		"title": "Notificaciones motivacionales",
+		"description": "Recibe una frase motivacional como notificación.",
+		"enable": "Activar notificaciones",
+		"disable": "Desactivar notificaciones",
+		"test_message": "Tu frase motivacional: {{quote}}"
+	}
 }
