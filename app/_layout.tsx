@@ -47,14 +47,14 @@ export default function RootLayout() {
           <Stack.Screen
             name='index'
             options={{
-              title: 'Starter Base',
+              title: "",
               headerRight: () => <ThemeToggle />,
             }}
           />
           <Stack.Screen
             name='favorites'
             options={{
-              title: 'Favoritos', // i18n key will be used in the screen itself
+              title: '', // i18n key will be used in the screen itself
             }}
           />
         </Stack>

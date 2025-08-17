@@ -1,44 +1,65 @@
 {
-	"motivation": {
-		"quotes": [
-			"Every day is a new opportunity to grow and improve.",
-			"Believe in yourself and all that you are.",
-			"Your only limit is your mind.",
-			"Start each day with a positive thought.",
-			"Small steps every day lead to big results."
-		]
-	},
-	"share": {
-		"button": "Share",
-		"message": "Check out this motivational quote: {{quote}}"
-	},
-	"customQuotes": {
-		"add": "Add your own quote",
-		"edit": "Edit quote",
-		"delete": "Delete",
-		"save": "Save",
-		"cancel": "Cancel",
-		"placeholder": "Write your motivational quote...",
-		"empty": "You haven't added any custom quotes yet.",
-		"error_empty": "Quote cannot be empty.",
-		"actions": {
-			"edit": "Edit",
-			"delete": "Delete"
-		}
-	},
-	"notifications": {
-		"title": "Motivational notifications",
-		"description": "Receive a motivational quote as a notification.",
-		"enable": "Enable notifications",
-		"disable": "Disable notifications",
-		"test_message": "Your motivational quote: {{quote}}"
-	}
-	,
-	"favorites": {
-		"title": "Favorite Quotes",
-		"empty": "You haven't marked any quotes as favorites yet.",
-		"button": "Favorites",
-		"add": "Add to favorites",
-		"remove": "Remove from favorites"
-	}
+  "motivation": {
+    "quotes": [
+      "Every day is a new opportunity to grow and improve.",
+      "Believe in yourself and all that you are.",
+      "Your only limit is your mind.",
+      "Start each day with a positive thought.",
+      "Small steps every day lead to big results.",
+      "The only way to do great work is to love what you do. — Steve Jobs",
+      "Do, or do not. There is no try. — Yoda, Star Wars",
+      "It always seems impossible until it's done. — Nelson Mandela",
+      "Carpe diem. Seize the day, boys. — Dead Poets Society",
+      "Success is not final, failure is not fatal: It is the courage to continue that counts. — Winston Churchill",
+      "Happiness can be found even in the darkest of times, if one only remembers to turn on the light. — Albus Dumbledore, Harry Potter",
+      "Our greatest glory is not in never falling, but in rising every time we fall. — Confucius",
+      "You miss 100% of the shots you don't take. — Wayne Gretzky",
+      "To infinity and beyond! — Buzz Lightyear, Toy Story",
+      "The future belongs to those who believe in the beauty of their dreams. — Eleanor Roosevelt",
+      "I've failed over and over and over again in my life and that is why I succeed. — Michael Jordan",
+      "Some people want it to happen, some wish it would happen, others make it happen. — Michael Jordan",
+      "Hard work beats talent when talent fails to work hard. — Kevin Durant",
+      "You have to expect things of yourself before you can do them. — Michael Jordan",
+      "Champions keep playing until they get it right. — Billie Jean King (often quoted in NBA)",
+      "Everything negative — pressure, challenges — is all an opportunity for me to rise. — Kobe Bryant",
+      "The most important thing is to try and inspire people so that they can be great in whatever they want to do. — Kobe Bryant",
+      "If you are afraid of failure you don’t deserve to be successful. — Charles Barkley",
+      "Excellence is not a singular act but a habit. You are what you repeatedly do. — Shaquille O'Neal",
+      "Success is no accident. It is hard work, perseverance, learning, studying, sacrifice and most of all, love of what you are doing. — Magic Johnson",
+      "Rest at the end, not at the middle. — Kobe Bryant",
+      "Job is not finished. — Kobe Bryant"
+    ],
+    "share": {
+      "button": "Share",
+      "message": "Check out this motivational quote: {{quote}}"
+    },
+    "customQuotes": {
+      "add": "Add your own quote",
+      "edit": "Edit quote",
+      "delete": "Delete",
+      "save": "Save",
+      "cancel": "Cancel",
+      "placeholder": "Write your motivational quote...",
+      "empty": "You haven't added any custom quotes yet.",
+      "error_empty": "Quote cannot be empty.",
+      "actions": {
+        "edit": "Edit",
+        "delete": "Delete"
+      }
+    },
+    "notifications": {
+      "title": "Motivational notifications",
+      "description": "Receive a motivational quote as a notification.",
+      "enable": "Enable notifications",
+      "disable": "Disable notifications",
+      "test_message": "Your motivational quote: {{quote}}"
+    },
+    "favorites": {
+      "title": "Favorite Quotes",
+      "empty": "You haven't marked any quotes as favorites yet.",
+      "button": "Favorites",
+      "add": "Add to favorites",
+      "remove": "Remove from favorites"
+    }
+  }
 }

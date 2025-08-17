@@ -1,45 +1,65 @@
 {
-	"motivation": {
-		"quotes": [
-			"Cada día es una nueva oportunidad para crecer y mejorar.",
-			"Cree en ti mismo y en todo lo que eres.",
-			"Tu único límite es tu mente.",
-			"Empieza cada día con un pensamiento positivo.",
-			"Pequeños pasos cada día llevan a grandes resultados."
-		]
-		},
-		"share": {
-			"button": "Compartir",
-			"message": "Mira esta frase motivacional: {{quote}}"
-			},
-			"customQuotes": {
-				"add": "Agregar tu propia frase",
-				"edit": "Editar frase",
-				"delete": "Eliminar",
-				"save": "Guardar",
-				"cancel": "Cancelar",
-				"placeholder": "Escribe tu frase motivacional...",
-				"empty": "Aún no has agregado frases propias.",
-				"error_empty": "La frase no puede estar vacía.",
-				"actions": {
-					"edit": "Editar",
-					"delete": "Eliminar"
-				}
-			}
-	,
-	"notifications": {
-		"title": "Notificaciones motivacionales",
-		"description": "Recibe una frase motivacional como notificación.",
-		"enable": "Activar notificaciones",
-		"disable": "Desactivar notificaciones",
-		"test_message": "Tu frase motivacional: {{quote}}"
-	}
-	,
-	"favorites": {
-		"title": "Frases favoritas",
-		"empty": "Aún no has marcado ninguna frase como favorita.",
-		"button": "Favoritos",
-		"add": "Agregar a favoritos",
-		"remove": "Quitar de favoritos"
-	}
+  "motivation": {
+    "quotes": [
+      "Cada día es una nueva oportunidad para crecer y mejorar.",
+      "Cree en ti mismo y en todo lo que eres.",
+      "Tu único límite es tu mente.",
+      "Empieza cada día con un pensamiento positivo.",
+      "Pequeños pasos cada día llevan a grandes resultados.",
+      "La única forma de hacer un gran trabajo es amar lo que haces. — Steve Jobs",
+      "Hazlo o no lo hagas, pero no lo intentes. — Yoda, Star Wars",
+      "Siempre parece imposible hasta que se hace. — Nelson Mandela",
+      "Carpe diem. Aprovecha el día, muchachos. — La sociedad de los poetas muertos",
+      "El éxito no es definitivo, el fracaso no es fatal: lo que cuenta es el valor para continuar. — Winston Churchill",
+      "La felicidad se puede hallar hasta en los más oscuros momentos, si somos capaces de usar bien la luz. — Albus Dumbledore, Harry Potter",
+      "Nuestra mayor gloria no está en no caer nunca, sino en levantarnos cada vez que caemos. — Confucio",
+      "Fallaste el 100% de los tiros que no lanzaste. — Wayne Gretzky",
+      "¡Hasta el infinito y más allá! — Buzz Lightyear, Toy Story",
+      "El futuro pertenece a quienes creen en la belleza de sus sueños. — Eleanor Roosevelt",
+      "He fallado una y otra vez en mi vida y por eso he tenido éxito. — Michael Jordan",
+      "Algunas personas quieren que suceda, otras desean que suceda, otras hacen que suceda. — Michael Jordan",
+      "El trabajo duro vence al talento cuando el talento no trabaja duro. — Kevin Durant",
+      "Tienes que esperar cosas de ti mismo antes de poder hacerlas. — Michael Jordan",
+      "Los campeones siguen jugando hasta que lo hacen bien. — Billie Jean King (citada frecuentemente en la NBA)",
+      "Todo lo negativo — presión, desafíos — es una oportunidad para mí de crecer. — Kobe Bryant",
+      "Lo más importante es intentar inspirar a las personas para que puedan ser grandes en lo que quieran hacer. — Kobe Bryant",
+      "Si tienes miedo de fracasar, no mereces tener éxito. — Charles Barkley",
+      "La excelencia no es un acto singular, sino un hábito. Eres lo que repites constantemente. — Shaquille O'Neal",
+      "El éxito no es casualidad. Es trabajo duro, perseverancia, aprendizaje, estudio, sacrificio y, sobre todo, amor por lo que haces. — Magic Johnson",
+      "Descansa al final, no a la mitad. — Kobe Bryant",
+      "El trabajo no está terminado. — Kobe Bryant"
+    ],
+    "share": {
+      "button": "Compartir",
+      "message": "Mira esta frase motivacional: {{quote}}"
+    },
+    "customQuotes": {
+      "add": "Agregar tu propia frase",
+      "edit": "Editar frase",
+      "delete": "Eliminar",
+      "save": "Guardar",
+      "cancel": "Cancelar",
+      "placeholder": "Escribe tu frase motivacional...",
+      "empty": "Aún no has agregado frases propias.",
+      "error_empty": "La frase no puede estar vacía.",
+      "actions": {
+        "edit": "Editar",
+        "delete": "Eliminar"
+      }
+    },
+    "notifications": {
+      "title": "Notificaciones motivacionales",
+      "description": "Recibe una frase motivacional como notificación.",
+      "enable": "Activar notificaciones",
+      "disable": "Desactivar notificaciones",
+      "test_message": "Tu frase motivacional: {{quote}}"
+    },
+    "favorites": {
+      "title": "Frases favoritas",
+      "empty": "Aún no has marcado ninguna frase como favorita.",
+      "button": "Favoritos",
+      "add": "Agregar a favoritos",
+      "remove": "Quitar de favoritos"
+    }
+  }
 }
