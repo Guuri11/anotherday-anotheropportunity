@@ -63,28 +63,32 @@ async function registerForNotifications() {
 function useTestNotifications(quotes: string[], enabled: boolean, t: any) {
   React.useEffect(() => {
     let notificationId: string | undefined;
-    async function schedule() {
+    async function scheduleDailyNotification() {
       const ok = await registerForNotifications();
       if (!ok) return;
+      // Cancel previous scheduled notifications to avoid duplicates
+      await Notifications.cancelAllScheduledNotificationsAsync();
+      // Pick a random quote for today
       const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+      // Platform-specific trigger for daily notification at 9:00 AM
+      let trigger;
+      if (Platform.OS === 'android') {
+        trigger = { type: 'daily', hour: 9, minute: 0 };
+      } else {
+        trigger = { type: 'calendar', repeats: true, dateComponents: { hour: 9, minute: 0 } };
+      }
       notificationId = await Notifications.scheduleNotificationAsync({
         content: {
           title: t('notifications.title'),
-          body: t('notifications.test_message', { quote: randomQuote }),
+          body: t('notifications.push_message', { quote: randomQuote }),
           sound: false,
         },
-        // @ts-expect-error Expo SDK 53+ expects 'timeInterval' as a string, but types are not aligned
-        trigger: {
-          type: 'timeInterval',
-          seconds: 30,
-          repeats: true,
-        },
+        trigger: trigger as any,
       });
     }
     if (enabled) {
-      schedule();
+      scheduleDailyNotification();
     } else {
-      // Cancel all scheduled notifications for this channel
       Notifications.cancelAllScheduledNotificationsAsync();
     }
     return () => {
