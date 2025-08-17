@@ -7,5 +7,9 @@
 			"Empieza cada día con un pensamiento positivo.",
 			"Pequeños pasos cada día llevan a grandes resultados."
 		]
-	}
+		},
+		"share": {
+			"button": "Compartir",
+			"message": "Mira esta frase motivacional: {{quote}}"
+		}
 }

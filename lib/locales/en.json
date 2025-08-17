@@ -7,5 +7,9 @@
 			"Start each day with a positive thought.",
 			"Small steps every day lead to big results."
 		]
-	}
+		},
+		"share": {
+			"button": "Share",
+			"message": "Check out this motivational quote: {{quote}}"
+		}
 }
