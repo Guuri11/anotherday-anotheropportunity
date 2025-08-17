@@ -12,4 +12,19 @@
 			"button": "Share",
 			"message": "Check out this motivational quote: {{quote}}"
 		}
+	,
+	"customQuotes": {
+		"add": "Add your own quote",
+		"edit": "Edit quote",
+		"delete": "Delete",
+		"save": "Save",
+		"cancel": "Cancel",
+		"placeholder": "Write your motivational quote...",
+		"empty": "You haven't added any custom quotes yet.",
+		"error_empty": "Quote cannot be empty.",
+		"actions": {
+			"edit": "Edit",
+			"delete": "Delete"
+		}
+	}
 }

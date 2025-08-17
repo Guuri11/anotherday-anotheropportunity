@@ -11,5 +11,19 @@
 		"share": {
 			"button": "Compartir",
 			"message": "Mira esta frase motivacional: {{quote}}"
-		}
+			},
+			"customQuotes": {
+				"add": "Agregar tu propia frase",
+				"edit": "Editar frase",
+				"delete": "Eliminar",
+				"save": "Guardar",
+				"cancel": "Cancelar",
+				"placeholder": "Escribe tu frase motivacional...",
+				"empty": "Aún no has agregado frases propias.",
+				"error_empty": "La frase no puede estar vacía.",
+				"actions": {
+					"edit": "Editar",
+					"delete": "Eliminar"
+				}
+			}
 }
