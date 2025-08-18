@@ -28,38 +28,38 @@
       "El éxito no es casualidad. Es trabajo duro, perseverancia, aprendizaje, estudio, sacrificio y, sobre todo, amor por lo que haces. — Magic Johnson",
       "Descansa al final, no a la mitad. — Kobe Bryant",
       "El trabajo no está terminado. — Kobe Bryant"
-    ],
-    "share": {
-      "button": "Compartir",
-      "message": "Mira esta frase motivacional: {{quote}}"
-    },
-    "customQuotes": {
-      "add": "Agregar tu propia frase",
-      "edit": "Editar frase",
-      "delete": "Eliminar",
-      "save": "Guardar",
-      "cancel": "Cancelar",
-      "placeholder": "Escribe tu frase motivacional...",
-      "empty": "Aún no has agregado frases propias.",
-      "error_empty": "La frase no puede estar vacía.",
-      "actions": {
-        "edit": "Editar",
-        "delete": "Eliminar"
-      }
-    },
-    "notifications": {
-      "title": "Notificaciones motivacionales",
-      "description": "Recibe una frase motivacional como notificación.",
-      "enable": "Activar notificaciones",
-      "disable": "Desactivar notificaciones",
-      "test_message": "Tu frase motivacional: {{quote}}"
-    },
-    "favorites": {
-      "title": "Frases favoritas",
-      "empty": "Aún no has marcado ninguna frase como favorita.",
-      "button": "Favoritos",
-      "add": "Agregar a favoritos",
-      "remove": "Quitar de favoritos"
+    ]
+  },
+  "share": {
+    "button": "Compartir",
+    "message": "Mira esta frase motivacional: {{quote}}"
+  },
+  "customQuotes": {
+    "add": "Agregar tu propia frase",
+    "edit": "Editar frase",
+    "delete": "Eliminar",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "placeholder": "Escribe tu frase motivacional...",
+    "empty": "Aún no has agregado frases propias.",
+    "error_empty": "La frase no puede estar vacía.",
+    "actions": {
+      "edit": "Editar",
+      "delete": "Eliminar"
     }
+  },
+  "notifications": {
+    "title": "Notificaciones motivacionales",
+    "description": "Recibe una frase motivacional como notificación.",
+    "enable": "Activar notificaciones",
+    "disable": "Desactivar notificaciones",
+    "test_message": "Tu frase motivacional: {{quote}}"
+  },
+  "favorites": {
+    "title": "Frases favoritas",
+    "empty": "Aún no has marcado ninguna frase como favorita.",
+    "button": "Favoritos",
+    "add": "Agregar a favoritos",
+    "remove": "Quitar de favoritos"
   }
 }

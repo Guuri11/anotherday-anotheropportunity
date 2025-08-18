@@ -28,38 +28,38 @@
       "Success is no accident. It is hard work, perseverance, learning, studying, sacrifice and most of all, love of what you are doing. — Magic Johnson",
       "Rest at the end, not at the middle. — Kobe Bryant",
       "Job is not finished. — Kobe Bryant"
-    ],
-    "share": {
-      "button": "Share",
-      "message": "Check out this motivational quote: {{quote}}"
-    },
-    "customQuotes": {
-      "add": "Add your own quote",
-      "edit": "Edit quote",
-      "delete": "Delete",
-      "save": "Save",
-      "cancel": "Cancel",
-      "placeholder": "Write your motivational quote...",
-      "empty": "You haven't added any custom quotes yet.",
-      "error_empty": "Quote cannot be empty.",
-      "actions": {
-        "edit": "Edit",
-        "delete": "Delete"
-      }
-    },
-    "notifications": {
-      "title": "Motivational notifications",
-      "description": "Receive a motivational quote as a notification.",
-      "enable": "Enable notifications",
-      "disable": "Disable notifications",
-      "test_message": "Your motivational quote: {{quote}}"
-    },
-    "favorites": {
-      "title": "Favorite Quotes",
-      "empty": "You haven't marked any quotes as favorites yet.",
-      "button": "Favorites",
-      "add": "Add to favorites",
-      "remove": "Remove from favorites"
+    ]
+  },
+  "share": {
+    "button": "Share",
+    "message": "Check out this motivational quote: {{quote}}"
+  },
+  "customQuotes": {
+    "add": "Add your own quote",
+    "edit": "Edit quote",
+    "delete": "Delete",
+    "save": "Save",
+    "cancel": "Cancel",
+    "placeholder": "Write your motivational quote...",
+    "empty": "You haven't added any custom quotes yet.",
+    "error_empty": "Quote cannot be empty.",
+    "actions": {
+      "edit": "Edit",
+      "delete": "Delete"
     }
+  },
+  "notifications": {
+    "title": "Motivational notifications",
+    "description": "Receive a motivational quote as a notification.",
+    "enable": "Enable notifications",
+    "disable": "Disable notifications",
+    "test_message": "Your motivational quote: {{quote}}"
+  },
+  "favorites": {
+    "title": "Favorite Quotes",
+    "empty": "You haven't marked any quotes as favorites yet.",
+    "button": "Favorites",
+    "add": "Add to favorites",
+    "remove": "Remove from favorites"
   }
 }
