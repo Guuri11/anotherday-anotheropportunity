@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { View, TextInput, ScrollView, KeyboardAvoidingView, Platform, Pressable } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -7,7 +6,8 @@ import { useDailyMotivation } from '../../lib/useDailyMotivation';
 import { Button } from '../../components/ui/button';
 import { Text } from '../../components/ui/text';
 // Card removed for minimal UI
-import { saveRitualData, getRitualData, getRitualHistory } from '../../lib/ritualStorage';
+import { saveRitualData, getRitualData, getRitualHistory, RitualData } from '../../lib/ritualStorage';
+import { HeatmapCalendar } from '../../components/ui/heatmapCalendar';
 
 const MAX_GOALS = 3;
 
@@ -18,7 +18,7 @@ export default function RitualScreen() {
   const [reflection, setReflection] = useState('');
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
-  const [history, setHistory] = useState<any[]>([]);
+  const [history, setHistory] = useState<RitualData[]>([]);
   // (already declared, remove duplicate)
   // Get today's date as YYYY-MM-DD
   const today = new Date().toISOString().slice(0, 10);
@@ -48,6 +48,39 @@ export default function RitualScreen() {
     setSaved(true);
     setTimeout(() => setSaved(false), 1500);
   };
+
+  // --- Heatmap and streak logic with month navigation ---
+  const pad = (n: number) => n.toString().padStart(2, '0');
+  const todayDate = new Date();
+  const [calendarMonth, setCalendarMonth] = useState<number>(todayDate.getMonth());
+  const [calendarYear, setCalendarYear] = useState<number>(todayDate.getFullYear());
+  // Days in selected month
+  const daysInMonth = new Date(calendarYear, calendarMonth + 1, 0).getDate();
+  const monthStr = `${calendarYear}-${pad(calendarMonth + 1)}`;
+  const allDays = Array.from({ length: daysInMonth }, (_, i) => `${monthStr}-${pad(i + 1)}`);
+
+  // Map ritual data by date
+  const historyMap = Object.fromEntries(history.map(r => [r.date, r]));
+  // For each day, determine status
+  const days = allDays.map(date => {
+    const ritual = historyMap[date];
+    if (!ritual || !ritual.goals.length) return { date, status: 'empty' } as const;
+    const completed = ritual.goals.filter(g => g.text.trim()).every(g => g.completed);
+    if (completed) return { date, status: 'full' } as const;
+    const any = ritual.goals.some(g => g.completed);
+    if (any) return { date, status: 'partial' } as const;
+    return { date, status: 'none' } as const;
+  });
+
+  // Calculate streak: count back from today, only 'full' days, must be consecutive
+  let streak = 0;
+  if (calendarYear === todayDate.getFullYear() && calendarMonth === todayDate.getMonth()) {
+    for (let i = allDays.length - 1; i >= 0; i--) {
+      if (days[i].status === 'full') streak++;
+      else if (days[i].status === 'empty') continue;
+      else break;
+    }
+  }
   const insets = useSafeAreaInsets();
 
   const handleGoalChange = (text: string, idx: number) => {
@@ -77,7 +110,56 @@ export default function RitualScreen() {
       style={{ paddingTop: insets.top + 32 }}
     >
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ alignItems: 'center' }}>
-  <View className="w-full max-w-xl py-8 px-4">
+        {/* Streak visual + month navigation + heatmap */}
+        <View className="w-full max-w-xl py-2 px-4">
+          <Text className="text-center text-accent-foreground text-xs mb-2 opacity-80">
+            🔥 {streak} {t('streak.label', { count: streak, defaultValue: 'days motivated' })}
+          </Text>
+          <View className="flex-row items-center justify-center gap-4 mb-2">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="p-1"
+              onPress={() => {
+                if (calendarMonth === 0) {
+                  setCalendarMonth(11);
+                  setCalendarYear(y => y - 1);
+                } else {
+                  setCalendarMonth(m => m - 1);
+                }
+              }}
+              accessibilityLabel={t('calendar.prevMonth', 'Previous month')}
+            >
+              <Text className="text-lg">‹</Text>
+            </Button>
+            <Text className="text-base font-semibold text-foreground">
+              {todayDate.toLocaleString(undefined, { month: 'long' })} {calendarYear}
+            </Text>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="p-1"
+              onPress={() => {
+                if (calendarMonth === 11) {
+                  setCalendarMonth(0);
+                  setCalendarYear(y => y + 1);
+                } else {
+                  setCalendarMonth(m => m + 1);
+                }
+              }}
+              accessibilityLabel={t('calendar.nextMonth', 'Next month')}
+            >
+              <Text className="text-lg">›</Text>
+            </Button>
+          </View>
+          <HeatmapCalendar
+            days={days}
+            onSelect={setSelectedDate}
+            selectedDate={selectedDate}
+            className="mb-6"
+          />
+        </View>
+        <View className="w-full max-w-xl py-8 px-4">
           <Text className="text-3xl font-extrabold text-center mb-10 tracking-tight text-foreground">
             {t('ritual.title')}
           </Text>

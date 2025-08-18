@@ -80,6 +80,10 @@
     "done": "Done",
     "inviteReflection": "Take a moment to reflect on your day."
   },
+  "calendar": {
+    "prevMonth": "Previous month",
+    "nextMonth": "Next month"
+  },
   "favorites": {
     "title": "Favorite Quotes",
     "empty": "You haven't marked any quotes as favorites yet.",

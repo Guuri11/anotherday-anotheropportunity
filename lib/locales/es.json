@@ -74,6 +74,10 @@
     "done": "Listo",
     "inviteReflection": "Tómate un momento para reflexionar sobre tu día."
   },
+  "calendar": {
+    "prevMonth": "Mes anterior",
+    "nextMonth": "Mes siguiente"
+  },
   "favorites": {
     "title": "Frases favoritas",
     "empty": "Aún no has marcado ninguna frase como favorita.",
