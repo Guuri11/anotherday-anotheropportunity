@@ -6,6 +6,28 @@ module.exports = {
   content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
   presets: [require('nativewind/preset')],
   theme: {
+    fontFamily: {
+      'montserrat-thin': ['Montserrat_100Thin'],
+      'montserrat-extralight': ['Montserrat_200ExtraLight'],
+      'montserrat-light': ['Montserrat_300Light'],
+      'montserrat': ['Montserrat_400Regular'],
+      'montserrat-medium': ['Montserrat_500Medium'],
+      'montserrat-semibold': ['Montserrat_600SemiBold'],
+      'montserrat-bold': ['Montserrat_700Bold'],
+      'montserrat-extrabold': ['Montserrat_800ExtraBold'],
+      'montserrat-black': ['Montserrat_900Black'],
+      'montserrat-thin-italic': ['Montserrat_100Thin_Italic'],
+      'montserrat-extralight-italic': ['Montserrat_200ExtraLight_Italic'],
+      'montserrat-light-italic': ['Montserrat_300Light_Italic'],
+      'montserrat-italic': ['Montserrat_400Regular_Italic'],
+      'montserrat-medium-italic': ['Montserrat_500Medium_Italic'],
+      'montserrat-semibold-italic': ['Montserrat_600SemiBold_Italic'],
+      'montserrat-bold-italic': ['Montserrat_700Bold_Italic'],
+      'montserrat-extrabold-italic': ['Montserrat_800ExtraBold_Italic'],
+      'montserrat-black-italic': ['Montserrat_900Black_Italic'],
+      sans: ['Montserrat_400Regular', 'ui-sans-serif', 'system-ui'],
+      bold: ['Montserrat_700Bold', 'ui-sans-serif', 'system-ui'],
+    },
     extend: {
       colors: {
         border: 'hsl(var(--border))',

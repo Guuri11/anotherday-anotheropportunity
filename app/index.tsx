@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 import { useFavoriteQuotes } from '../lib/useFavoriteQuotes';
 import { useColorScheme } from '~/lib/useColorScheme';
 import { Heart } from '~/lib/icons/Heart';
+import { Logo } from '../components/Logo';
 import { Switch } from '~/components/ui/switch';
 import * as Notifications from 'expo-notifications';
 import * as Device from 'expo-device';
@@ -193,7 +194,11 @@ export default function Screen() {
       {/* Minimal menu */}
       <Menu />
       {/* Settings modal */}
-  <SettingsModal notificationsEnabled={notificationsEnabled} setNotificationsEnabled={setNotificationsEnabled} />
+      <SettingsModal notificationsEnabled={notificationsEnabled} setNotificationsEnabled={setNotificationsEnabled} />
+      {/* Logo at the top */}
+      <View className="w-full items-center mt-12">
+        <Logo className="w-24 h-24" />
+      </View>
       {/* Main content */}
       <View className="flex-1 justify-center items-center w-full px-6">
         {/* Motivational streak */}

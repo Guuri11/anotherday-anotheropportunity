@@ -1,3 +1,4 @@
+import { useMontserratFont } from '~/lib/useMontserratFont';
 import '~/global.css';
 
 import { DarkTheme, DefaultTheme, Theme, ThemeProvider } from '@react-navigation/native';
@@ -38,6 +39,11 @@ const usePlatformSpecificSetup = Platform.select({
 export default function RootLayout() {
   usePlatformSpecificSetup();
   const { isDarkColorScheme } = useColorScheme();
+  const fontsLoaded = useMontserratFont();
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return (
     <I18nextProvider i18n={i18n}>
