@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { useDailyMotivation } from '../../lib/useDailyMotivation';
 import { Button } from '../../components/ui/button';
 import { Text } from '../../components/ui/text';
-import { Card } from '../../components/ui/card';
+// Card removed for minimal UI
 import { saveRitualData, getRitualData, getRitualHistory } from '../../lib/ritualStorage';
 
 const MAX_GOALS = 3;
@@ -77,25 +77,25 @@ export default function RitualScreen() {
       style={{ paddingTop: insets.top + 32 }}
     >
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ alignItems: 'center' }}>
-        <Card className="w-full max-w-xl py-10 px-6 rounded-3xl shadow-xl bg-card/80 border-0">
-          <Text className="text-3xl font-extrabold text-center mb-8 tracking-tight text-foreground">
+  <View className="w-full max-w-xl py-8 px-4">
+          <Text className="text-3xl font-extrabold text-center mb-10 tracking-tight text-foreground">
             {t('ritual.title')}
           </Text>
-          <View className="mb-10">
+          <View className="mb-12">
             <Text className="text-lg font-semibold mb-2 text-primary">
               {t('ritual.quoteOfTheDay')}
             </Text>
-            <Text className="text-base italic bg-muted/60 rounded-xl px-4 py-4 text-foreground">
+            <Text className="text-base italic px-0 py-2 text-foreground">
               {quote}
             </Text>
           </View>
-          <View className="mb-10">
+          <View className="mb-12">
             <Text className="text-lg font-semibold mb-4 text-primary">
               {t('ritual.yourGoals')}
             </Text>
             <View className="gap-3">
               {goals.map((goal, idx) => (
-                <View key={idx} className="flex-row items-center bg-muted/40 rounded-xl px-3 py-3">
+                <View key={idx} className="flex-row items-center px-0 py-2">
                   <Pressable
                     onPress={() => handleGoalToggle(idx)}
                     accessibilityRole="checkbox"
@@ -143,7 +143,7 @@ export default function RitualScreen() {
               {t('ritual.maxGoals')}
             </Text>
           </View>
-          <View className="mb-10">
+          <View className="mb-12">
             <Text className="text-lg font-semibold mb-2 text-primary">
               {t('ritual.reflectionTitle')}
             </Text>
@@ -151,7 +151,7 @@ export default function RitualScreen() {
               {t('ritual.inviteReflection')}
             </Text>
             <TextInput
-              className="bg-muted/40 rounded-xl text-base text-foreground px-3 py-3 min-h-[64px]"
+              className="bg-transparent border-0 text-base text-foreground px-0 py-3 min-h-[64px]"
               placeholder={t('ritual.reflectionPlaceholder')}
               placeholderTextColor="#A3A3A3"
               value={reflection}
@@ -173,7 +173,7 @@ export default function RitualScreen() {
                   : t('ritual.save')}
             </Text>
           </Button>
-        </Card>
+        </View>
       </ScrollView>
     </KeyboardAvoidingView>
   );

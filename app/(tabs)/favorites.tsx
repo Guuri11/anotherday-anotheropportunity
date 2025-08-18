@@ -2,7 +2,7 @@ import * as React from 'react';
 import { View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Text } from '~/components/ui/text';
-import { Card } from '~/components/ui/card';
+// Card removed for minimal UI
 import { Button } from '~/components/ui/button';
 import { useFavoriteQuotes } from '~/lib/useFavoriteQuotes';
 import { useTranslation } from 'react-i18next';
@@ -19,8 +19,8 @@ export default function FavoritesScreen() {
       className="flex-1 items-center bg-background px-4"
       style={{ paddingTop: insets.top + 32 }}
     >
-      <Card className="w-full max-w-xl py-10 px-6 rounded-3xl shadow-xl bg-card/80 border-0">
-        <Text className="text-3xl font-extrabold text-center mb-8 tracking-tight">
+      <View className="w-full max-w-xl py-8 px-0">
+        <Text className="text-3xl font-extrabold text-center mb-10 tracking-tight">
           {t('favorites.title')}
         </Text>
         {favorites.length === 0 ? (
@@ -32,7 +32,7 @@ export default function FavoritesScreen() {
             {favorites.map((quote, idx) => (
               <View
                 key={idx}
-                className="flex-row items-center bg-muted/40 rounded-2xl px-4 py-5 shadow-sm"
+                className="flex-row items-center px-0 py-4"
               >
                 <Text className="flex-1 text-base font-medium text-foreground pr-4">
                   {quote}
@@ -40,7 +40,7 @@ export default function FavoritesScreen() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="p-2 rounded-full hover:bg-red-50 active:bg-red-100"
+                  className="p-2 rounded-full"
                   onPress={() => removeFavorite(quote)}
                   accessibilityLabel={t('favorites.remove')}
                 >
@@ -50,7 +50,7 @@ export default function FavoritesScreen() {
             ))}
           </View>
         )}
-      </Card>
+      </View>
     </View>
   );
 }
