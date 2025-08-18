@@ -1,6 +1,7 @@
 {
   "motivation": {
-    "quotes": [
+  "title": "Motivación",
+  "quotes": [
       "Otro día, otra oportunidad.",
       "Cada día es una nueva oportunidad para crecer y mejorar.",
       "Cree en ti mismo y en todo lo que eres.",
@@ -8,13 +9,7 @@
       "Empieza cada día con un pensamiento positivo.",
       "Pequeños pasos cada día llevan a grandes resultados.",
       "La única forma de hacer un gran trabajo es amar lo que haces. — Steve Jobs",
-      "Hazlo o no lo hagas, pero no lo intentes. — Yoda, Star Wars",
-      "Siempre parece imposible hasta que se hace. — Nelson Mandela",
-      "Carpe diem. Aprovecha el día, muchachos. — La sociedad de los poetas muertos",
-      "El éxito no es definitivo, el fracaso no es fatal: lo que cuenta es el valor para continuar. — Winston Churchill",
-      "La felicidad se puede hallar hasta en los más oscuros momentos, si somos capaces de usar bien la luz. — Albus Dumbledore, Harry Potter",
-      "Nuestra mayor gloria no está en no caer nunca, sino en levantarnos cada vez que caemos. — Confucio",
-      "Fallaste el 100% de los tiros que no lanzaste. — Wayne Gretzky",
+
       "¡Hasta el infinito y más allá! — Buzz Lightyear, Toy Story",
       "El futuro pertenece a quienes creen en la belleza de sus sueños. — Eleanor Roosevelt",
       "He fallado una y otra vez en mi vida y por eso he tenido éxito. — Michael Jordan",
@@ -30,6 +25,20 @@
       "Descansa al final, no a la mitad. — Kobe Bryant",
       "El trabajo no está terminado. — Kobe Bryant"
     ]
+  },
+  "menu": {
+    "open": "Abrir menú"
+  },
+  "streak": {
+    "label": "días motivado"
+  },
+  "notifications": {
+    "title": "Notificaciones motivacionales",
+    "description": "Recibe una frase motivacional como notificación.",
+    "enable": "Activar notificaciones",
+    "disable": "Desactivar notificaciones",
+    "test_message": "Tu frase motivacional: {{quote}}",
+    "push_message": "Tu frase motivacional: {{quote}}"
   },
   "share": {
     "button": "Compartir",
@@ -49,12 +58,21 @@
       "delete": "Eliminar"
     }
   },
-  "notifications": {
-    "title": "Notificaciones motivacionales",
-    "description": "Recibe una frase motivacional como notificación.",
-    "enable": "Activar notificaciones",
-    "disable": "Desactivar notificaciones",
-    "test_message": "Tu frase motivacional: {{quote}}"
+
+  "ritual": {
+    "title": "Ritual diario",
+    "quoteOfTheDay": "Frase del día",
+    "yourGoals": "Tus objetivos para hoy",
+    "addGoal": "Agregar objetivo",
+    "goalPlaceholder": "Escribe tu objetivo...",
+    "maxGoals": "Puedes agregar hasta 3 objetivos.",
+    "reflectionTitle": "Reflexión diaria",
+    "reflectionPrompt": "¿Cómo aprovechaste tu día?",
+    "reflectionPlaceholder": "Escribe una reflexión de una línea...",
+    "save": "Guardar",
+    "edit": "Editar",
+    "done": "Listo",
+    "inviteReflection": "Tómate un momento para reflexionar sobre tu día."
   },
   "favorites": {
     "title": "Frases favoritas",

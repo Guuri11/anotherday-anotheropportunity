@@ -8,8 +8,8 @@ export function useFavoriteQuotes() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    AsyncStorage.getItem(FAVORITES_KEY)
-      .then((data: string | null) => {
+      AsyncStorage.getItem(FAVORITES_KEY)
+        .then((data: string | null) => {
         if (data) setFavorites(JSON.parse(data));
       })
       .finally(() => setLoading(false));

@@ -1,19 +1,20 @@
 import * as React from 'react';
 import { View, TouchableOpacity, Platform, Share } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Text } from '~/components/ui/text';
 import { Button } from '~/components/ui/button';
 import { useRouter } from 'expo-router';
-import { useCustomQuotes, type CustomQuote } from '../lib/useCustomQuotes';
+import { useCustomQuotes, type CustomQuote } from '../../lib/useCustomQuotes';
 import { Input } from '~/components/ui/input';
 import { useDailyMotivation } from '~/lib/useDailyMotivation';
 import { useTranslation } from 'react-i18next';
-import { useFavoriteQuotes } from '../lib/useFavoriteQuotes';
+import { useFavoriteQuotes } from '../../lib/useFavoriteQuotes';
 import { useColorScheme } from '~/lib/useColorScheme';
-import { Heart } from '~/lib/icons/Heart';
-import { Logo } from '../components/Logo';
+import { Logo } from '../../components/Logo';
 import { Switch } from '~/components/ui/switch';
 import * as Notifications from 'expo-notifications';
 import * as Device from 'expo-device';
+import { Heart } from 'lucide-react-native';
 
 // Set notification handler global (seguro en app entry, pero aquí para demo)
 Notifications.setNotificationHandler({
@@ -87,7 +88,8 @@ function useDailyNotifications(quotes: string[], enabled: boolean, t: any) {
   }, [enabled, quotes, t]);
 }
 
-export default function Screen() {
+
+export default function IndexScreen() {
   const router = useRouter();
   const { quotes, addQuote, editQuote, deleteQuote } = useCustomQuotes();
   const dailyQuote = useDailyMotivation();
@@ -101,6 +103,7 @@ export default function Screen() {
   const [notificationsEnabled, setNotificationsEnabled] = React.useState(false);
   const [streak, setStreak] = React.useState(1); // TODO: Replace with real streak logic
   const colorScheme = useColorScheme();
+  const insets = useSafeAreaInsets();
 
   // Todas las frases para notificaciones (default + custom)
   const allQuotes = React.useMemo(() => [
@@ -113,7 +116,7 @@ export default function Screen() {
   function Menu() {
     const [open, setOpen] = React.useState(false);
     return (
-      <View className="absolute top-6 right-6 z-10">
+      <View className="absolute top-24 right-6 z-10">
         <TouchableOpacity onPress={() => setOpen(!open)} accessibilityLabel={t('menu.open', 'Open menu')}>
           <Text className="text-2xl text-muted-foreground">⋮</Text>
         </TouchableOpacity>
@@ -189,7 +192,7 @@ export default function Screen() {
   };
 
   return (
-    <View className="flex-1 justify-center items-center relative">
+    <View className="flex-1 justify-center items-center prelative" style={{ paddingTop: insets.top + 32 }}>
       {/* Animated gradient background (static for now, can animate with Reanimated) */}
       {/* Minimal menu */}
       <Menu />
@@ -215,7 +218,6 @@ export default function Screen() {
         </Button>
         {/* Favorite button */}
         <Button
-          variant="ghost"
           className="mb-2"
           onPress={() =>
             isFavorite(dailyQuote)
@@ -224,7 +226,7 @@ export default function Screen() {
           }
           accessibilityLabel={isFavorite(dailyQuote) ? t('favorites.remove') : t('favorites.add')}
         >
-          <Heart filled={isFavorite(dailyQuote)} className={isFavorite(dailyQuote) ? 'text-red-500' : 'text-muted-foreground'} />
+          <Heart className={isFavorite(dailyQuote) ? 'text-red-500' : 'text-muted-foreground'} />
         </Button>
       </View>
       {/* Custom Quote Dialog */}

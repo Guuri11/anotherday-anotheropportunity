@@ -50,19 +50,7 @@ export default function RootLayout() {
       <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
         <StatusBar style={isDarkColorScheme ? 'light' : 'dark'} />
         <Stack>
-          <Stack.Screen
-            name='index'
-            options={{
-              title: "",
-              headerRight: () => <ThemeToggle />,
-            }}
-          />
-          <Stack.Screen
-            name='favorites'
-            options={{
-              title: '', // i18n key will be used in the screen itself
-            }}
-          />
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         </Stack>
         <PortalHost />
       </ThemeProvider>

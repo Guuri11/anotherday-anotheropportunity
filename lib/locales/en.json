@@ -1,6 +1,7 @@
 {
   "motivation": {
-    "quotes": [
+  "title": "Motivation",
+  "quotes": [
       "Another day, another opportunity.",
       "Every day is a new opportunity to grow and improve.",
       "Believe in yourself and all that you are.",
@@ -31,6 +32,20 @@
       "Job is not finished. — Kobe Bryant"
     ]
   },
+  "menu": {
+    "open": "Open menu"
+  },
+  "streak": {
+    "label": "days motivated"
+  },
+  "notifications": {
+    "title": "Motivational notifications",
+    "description": "Receive a motivational quote as a notification.",
+    "enable": "Enable notifications",
+    "disable": "Disable notifications",
+    "test_message": "Your motivational quote: {{quote}}",
+    "push_message": "Your motivational quote: {{quote}}"
+  },
   "share": {
     "button": "Share",
     "message": "Check out this motivational quote: {{quote}}"
@@ -49,12 +64,21 @@
       "delete": "Delete"
     }
   },
-  "notifications": {
-    "title": "Motivational notifications",
-    "description": "Receive a motivational quote as a notification.",
-    "enable": "Enable notifications",
-    "disable": "Disable notifications",
-    "test_message": "Your motivational quote: {{quote}}"
+
+  "ritual": {
+    "title": "Daily Ritual",
+    "quoteOfTheDay": "Quote of the day",
+    "yourGoals": "Your goals for today",
+    "addGoal": "Add a goal",
+    "goalPlaceholder": "Write your goal...",
+    "maxGoals": "You can add up to 3 goals.",
+    "reflectionTitle": "Daily Reflection",
+    "reflectionPrompt": "How did you make the most of your day?",
+    "reflectionPlaceholder": "Write a one-line reflection...",
+    "save": "Save",
+    "edit": "Edit",
+    "done": "Done",
+    "inviteReflection": "Take a moment to reflect on your day."
   },
   "favorites": {
     "title": "Favorite Quotes",
