@@ -54,7 +54,7 @@ export function HeatmapCalendar({
               accessibilityLabel={`Día ${d.date}`}
               accessibilityRole="button"
             >
-              <Text className="text-xs font-bold text-black/80">
+              <Text className="text-xs font-bold text-foreground">
                 {parseInt(d.date.split('-')[2], 10)}
               </Text>
             </Pressable>

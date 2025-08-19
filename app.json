@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "anotherday-anotheropportunity",
-    "slug": "anotherday-anotheropportunity",
+    "name": "Another Day Another Opportunity",
+    "slug": "another-day-another-opportunity",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -42,7 +42,6 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "8fd033ae-2b6a-4afc-8dc3-a093bedaca26"
       }
     }
   }

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, TouchableOpacity, Platform, Share } from 'react-native';
+import { View, Platform, Share } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Text } from '~/components/ui/text';
 import { Button } from '~/components/ui/button';
@@ -14,7 +14,8 @@ import { Logo } from '../../components/Logo';
 import { Switch } from '~/components/ui/switch';
 import * as Notifications from 'expo-notifications';
 import * as Device from 'expo-device';
-import { Heart } from 'lucide-react-native';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '~/components/ui/dropdown-menu';
+import { Heart } from '~/lib/icons/Heart';
 
 // Set notification handler global (seguro en app entry, pero aquí para demo)
 Notifications.setNotificationHandler({
@@ -114,29 +115,30 @@ export default function IndexScreen() {
 
   // Minimal menu (top-right)
   function Menu() {
-    const [open, setOpen] = React.useState(false);
     return (
       <View className="absolute top-24 right-6 z-10">
-        <TouchableOpacity onPress={() => setOpen(!open)} accessibilityLabel={t('menu.open', 'Open menu')}>
-          <Text className="text-2xl text-muted-foreground">⋮</Text>
-        </TouchableOpacity>
-        {open && (
-          <View className="absolute right-0 mt-2 bg-background rounded-xl shadow-lg py-2 w-44 z-20 border border-border">
-            <TouchableOpacity className="px-4 py-2" onPress={() => { setOpen(false); router.push('./favorites'); }}>
-              <Text className="text-base text-foreground">{t('favorites.button')}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity className="px-4 py-2" onPress={() => { setOpen(false); setShowCustomQuoteDialog(true); }}>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button
+              variant="ghost"
+              className="p-0 m-0 min-w-0 h-auto"
+              accessibilityLabel={t('menu.open', 'Open menu')}
+            >
+              <Text className="text-2xl text-muted-foreground">⋮</Text>
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-44">
+            <DropdownMenuItem onPress={() => setShowCustomQuoteDialog(true)}>
               <Text className="text-base text-foreground">{t('customQuotes.add')}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity className="px-4 py-2" onPress={() => { setOpen(false); setShowSettings(true); }}>
+            </DropdownMenuItem>
+            <DropdownMenuItem onPress={() => setShowSettings(true)}>
               <Text className="text-base text-foreground">{t('notifications.title')}</Text>
-            </TouchableOpacity>
-          </View>
-        )}
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </View>
     );
   }
-
   // Settings modal (notification toggle, custom quotes, etc.)
   function SettingsModal({ notificationsEnabled, setNotificationsEnabled }: { notificationsEnabled: boolean, setNotificationsEnabled: (v: boolean) => void }) {
     if (!showSettings) return null;
@@ -219,6 +221,7 @@ export default function IndexScreen() {
         {/* Favorite button */}
         <Button
           className="mb-2"
+          variant="ghost"
           onPress={() =>
             isFavorite(dailyQuote)
               ? removeFavorite(dailyQuote)
@@ -226,7 +229,15 @@ export default function IndexScreen() {
           }
           accessibilityLabel={isFavorite(dailyQuote) ? t('favorites.remove') : t('favorites.add')}
         >
-          <Heart className={isFavorite(dailyQuote) ? 'text-red-500' : 'text-muted-foreground'} />
+          <Heart
+            className={
+              isFavorite(dailyQuote)
+                ? 'text-red-500'
+                : colorScheme.isDarkColorScheme
+                  ? 'text-foreground'
+                  : 'text-muted-foreground'
+            }
+          />
         </Button>
       </View>
       {/* Custom Quote Dialog */}
